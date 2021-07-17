@@ -20,7 +20,7 @@
       <v-list two-line class="overflow-y-auto" max-height="400">
         <v-list-item-group active-class="blue--text">
           <template v-for="(item, index) in items">
-            <v-list-item :key="item.title" @click="fnGetDriver(item)">
+            <v-list-item :key="item.title" @click="fnGoToDriver(item)">
               <template>
                 <v-list-item-content>
                   <v-list-item-title v-text="item.title"></v-list-item-title>
@@ -88,9 +88,57 @@ export default {
     ],
   }),
   methods: {
-    fnGetDriver(item) {
-      console.log(item);
+    fnGoToDriver(item) {
+      this.items.pop();
+      //this.$router.push({ name: "driverId", params: { id: item._id } });
     },
+
+    fnGetNotifications() {
+      this.items = [
+        {
+          action: "15 min",
+          headline: "Brunch this weekend?",
+          title: "Ali Connors",
+          subtitle:
+            "I'll be in your neighborhood doing errands this weekend. Do you want to hang out? Wish I could come, but I'm out of town this weekend.",
+        },
+        {
+          action: "2 hr",
+          headline: "Summer BBQ",
+          title: "me, Scrott, Jennifer",
+          subtitle: "Wish I could come, but I'm out of town this weekend.",
+        },
+        {
+          action: "6 hr",
+          headline: "Oui oui",
+          title: "Sandra Adams",
+          subtitle: "Do you have Paris recommendations? Have you ever been?",
+        },
+        {
+          action: "12 hr",
+          headline: "Birthday gift",
+          title: "Trevor Hansen",
+          subtitle:
+            "Have any ideas about what we should get Heidi for her birthday?",
+        },
+        {
+          action: "18hr",
+          headline: "Recipe to try",
+          title: "Britta Holt",
+          subtitle:
+            "We should eat this: Grate, Squash, Corn, and tomatillo Tacos.",
+        },
+        {
+          action: "55hr",
+          headline: "Job",
+          title: "Danny Acosta",
+          subtitle: "I'm a web developer",
+        },
+      ];
+    },
+  },
+  mounted() {
+    this.fnGetNotifications();
   },
 };
 </script>
