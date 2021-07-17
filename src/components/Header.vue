@@ -3,6 +3,9 @@
     <v-app-bar app class="warning">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Vuetify-Maps</v-toolbar-title>
+      
+      <v-spacer></v-spacer>
+      <Notifications />
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" absolute bottom temporary dark>
@@ -29,7 +32,11 @@
 </template>
 
 <script>
+import Notifications from "./Notifications.vue";
 export default {
+  components: {
+    Notifications,
+  },
   data: () => ({
     drawer: false,
     items: [
